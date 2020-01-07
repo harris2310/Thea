@@ -1,0 +1,12 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.Map {
+  height: 100vh
+}
+
+.leaflet-popup-content {
+  width:300px !important;
+}
