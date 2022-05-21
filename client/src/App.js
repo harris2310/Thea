@@ -3,7 +3,9 @@ import './App.css';
 import MapComp from './components/MapComp.js';
 import LandingPage from './components/LandingPage.js';
 import uuid from 'react-uuid'
-import {dataCall, apiPostCall, imageCall} from './Api';
+import {apiPostCall, imageCall} from './Api';
+//COMMENT FOR CLIENT ONLY
+import {dataCall} from './Api';
 
 const URL = 'http://localhost:5000/messages';
 
@@ -16,14 +18,16 @@ const App = () => {
   const [messages, setMessages] = useState(null);
   const [pos, setPos] = useState(null);
 
-
-  useEffect(() => {
+//COMMENT FOR CLIENT ONLY
+   useEffect(() => {
     async function fetchToApi() {
       const messagesToState = await dataCall();
       setMessages(messagesToState);
     }
     fetchToApi();
-  }, []);
+  }, []);  
+
+
 
   /*
   const handleImageFetch = (e) => {

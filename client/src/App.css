@@ -1,3 +1,17 @@
+html, body {
+  min-height: 100vh;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+  background-color: #ffffff
+}
 .leaflet-container {
   width: 100%;
   height: 100vh;
@@ -8,9 +22,35 @@
   width: 70px;
 }
 
-.spacing-button {
+
+.header-container {
+  background-color:#1a2845;
   text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.header-title {
+  color: rgb(255, 255, 255);
   padding: 30px;
+}
+
+.spacing-button {
+  display:inline-block;
+  border: none;
+  padding:1em 2em;
+  margin:1em 1em;
+  text-decoration:none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:300;
+  color:rgb(255, 255, 255);
+  background-color: #292416;;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.spacing-button:hover {
+  background-color: #FCA311;
+  cursor: pointer;
 }
 
 .text-spacing {
@@ -18,11 +58,80 @@
   margin-bottom: 10px;
 }
 
+h1 {
+  margin: 0;
+}
+
+
+.app-description {
+  text-align: center;
+  font-size: x-large;
+  margin: 5rem;
+}
+
 .popup {
   padding: 10px;
-  width: 300px
+  width: 300px;
+  background-color: rgb(124, 144, 162);
+}
+
+
+.flex-footer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+footer {
+  background-color: #E5E5E5;
+}
+
+.credit-text {
+  text-align: center;
+  font-size: x-large;
+  padding: 30px;
+}
+
+.message {
+  padding: 5px;
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(124, 144, 162);
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: large;
+  text-align:justify
+}
+
+.sidebar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1000; /* Stay on top */
+  top: 0; /* Stay at the top */
+  padding: 20px;
+  left: 0;
+  background-color: rgb(107, 101, 101); /* Black */
+  padding-top: 20px;
+}
+
+.social-links {
+  display:flex;
+  margin: 15px;
+  padding:0 10px 10px 0;
 }
 
 .images {
-  width: 100%;
-};
+  width: 250px;
+}
+
+.icons {
+  width: 5em;
+}
+
+.social-links :hover {
+    transition: transform .2s;
+  transform: scale(1.1);
+}
+
