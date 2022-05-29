@@ -6,24 +6,22 @@ const LandingPage = props => {
     <div className='site'>
       <header>
         <div className='header-container'>
-          <h1 className='header-title'>
-            Thea App
+          <h1 className='title-thea'>
+            Thea
           </h1>
         </div>
       </header>
       <section className='site-content'>
         <p className='app-description'>
-          It's an App where people can share their photos and pinpoint on the map where the photo was took<br />
-          <div className='credit-text'>
+          It's an App where people can share their photos and pinpoint on the map where the photo was taken<br /><br />
           It's developed by me, Harris Hanozidis
-        </div>
         </p>
         <div style={{textAlign: 'center'}}>
           <button className='spacing-button' onClick={props.handleClicked}>Start!</button>
         </div>
       </section>
       <footer>
-        <div className='credit-text'>
+        <div className='socials-title'>
           My socials:
         </div>
         <div className='flex-footer'>

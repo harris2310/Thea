@@ -14,6 +14,8 @@ const App = () => {
   const [clicked, setClicked] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [inputImage, setInputImage] = useState('');
+  const [imageFetched, setImageFetched] = useState(false);
+  const [stored, setStored] = useState([]);
   const [inputImageName, setInputImageName] = useState('');
   const [messages, setMessages] = useState(null);
   const [pos, setPos] = useState(null);
@@ -29,16 +31,17 @@ const App = () => {
 
 
 
-  /*
+  
   const handleImageFetch = (e) => {
     console.log(e)
     async function fetchToApiImage(e) {
       const imageToState = await imageCall(e);
       setInputImage(imageToState);
+      setImageFetched(true);
     }
     fetchToApiImage(e);
   }
-  */
+  
 
   const handleClicked = () => {
     setClicked(true);
@@ -55,7 +58,7 @@ const App = () => {
     setInputValue(e.target.value);
   }
 
-  const handleFileSelected = (e) => {
+  const  handleFileSelected = (e) => {
     setInputImageName(e.target.files[0].name);
     setInputImage(e.target.files[0]);
   }
@@ -69,19 +72,28 @@ const App = () => {
     formData.append('message', inputValue);
     formData.append('uniqueId', uuid());
     formData.append('image', inputImage);
-    apiPostCall(e, URL, formData);
+    apiPostCall(e, URL, formData).then((res) => {
+      if(res.status=='200') {
+        console.log('success');
+      } else {
+        console.log('failed');
+      }});
   }
 
 
   return (
     <div>
       {clicked ? <MapComp 
+                  stored={stored}
                   messages={messages}
                   inputValue={inputValue}
+                  imageFetched={imageFetched}
+                  setStored={setStored}
+                  setImageFetched={setImageFetched}
                   handleFormSubmit={handleFormSubmit}
                   handleInputChange={handleInputChange}
                   handleFileSelected={handleFileSelected}
-                  //handleImageFetch={handleImageFetch}
+                  handleImageFetch={handleImageFetch}
                   handlePos={handlePos}
                   pos={pos}
                   />

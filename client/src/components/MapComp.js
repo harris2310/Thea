@@ -1,24 +1,10 @@
 import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
 import SideBar from './SideBar';
 import '../App.css';
-
-
-
-const iconPerson = new L.Icon({
-    iconUrl: require('../images/marker.png'),
-    iconSize:     [32, 32], // size of the icon
-    iconAnchor:   [22, 40], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-7, -40] // point from which the popup should open relative to the iconAnchor
-});
-
-const iconNew = new L.Icon({
-  iconUrl: require('../images/markerNew.png'),
-  iconSize:     [23.5, 35], // size of the icon
-  iconAnchor:   [15, 43], // point of the icon which will correspond to marker's location
-  popupAnchor:  [-5, -45] // point from which the popup should open relative to the iconAnchor
-});
+import { RotatingSquare  } from  'react-loader-spinner'
+import { iconPerson, iconNew} from '../popupStyle';
+import Basic from './chooseFile';
 
 
 
@@ -31,29 +17,53 @@ const MapComp = (props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {props.messages.map((i) => (
-            <Marker imageName={i.url} key={i.uniqueId} position={[i.latlng[0].lat, i.latlng[0].lng]} icon={iconPerson} onClick={props.handleImageFetch}>
-              <Popup closeButton={false} className='popup'>
+            <Marker 
+                    key={i.uniqueId} 
+                    position={[i.latlng[0].lat, i.latlng[0].lng]} 
+                    icon={iconPerson} 
+                    >
+              <Popup>
                 <div>
-                  <h2>
-                    Name's Message:
-                  </h2>
-                  <p className='message'>
-                    {i.message}
-                  </p>
-                  <div className='images'>
-                    <img className='images' src={i.url}/>
-                  </div>
+                    <div style={{display: props.stored.includes(i.uniqueId) ? 'block' : 'none'}}>
+                      <p className='message'>
+                        {i.message}
+                      </p>
+                      <div className='images'>
+                        <img 
+                          onLoad={() => {
+                            props.setStored([...props.stored, i.uniqueId])
+                          }} 
+                          className='images' 
+                          src={i.url}
+                        />
+                      </div>
+                    </div>
+                    {!props.stored.includes(i.uniqueId) && <div className='loader'>
+                                                             <RotatingSquare color="#EE6C4D"  height={80} width={80} />
+                                                           </div>
+                    }
                 </div>
               </Popup>
             </Marker>
         ))}
         {props.pos != null ? 
           <Marker key={props._id} position={props.pos} icon={iconNew}>
-            <Popup closeButton={false}>
+            <Popup>
               <form onSubmit={props.handleFormSubmit}>
-                <textarea value={props.inputValue} onChange={props.handleInputChange}/>
-                <input type="file" className='text-spacing' onChange={props.handleFileSelected}/>
-                <button type="submit">Upload</button>
+                <h3>Your message:</h3>
+                <textarea maxLength='60'  
+                          required={true} 
+                          value={props.inputValue} 
+                          onChange={props.handleInputChange}
+                          rows='5'
+                          cols='10'
+                          />
+                <label className="button-upload">
+                    Browse <input type="file" style={{display: 'none'}} onClick={props.handlefileSelected} required />
+                </label>
+                <div className='button-container'>
+                  <button  className='spacing-button' type="submit">Upload</button>
+                </div>
               </form>
             </Popup>
           </Marker> : ''}

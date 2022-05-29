@@ -10,8 +10,9 @@ html, body {
 
 .site-content {
   flex: 1;
-  background-color: #ffffff
+  background-color: #3D5A80
 }
+
 .leaflet-container {
   width: 100%;
   height: 100vh;
@@ -22,9 +23,15 @@ html, body {
   width: 70px;
 }
 
+.file-select {
+  background-color: white;
+  display: block;
+  width: 90px;
+  margin: auto;
+}
 
 .header-container {
-  background-color:#1a2845;
+  background-color:#293241;
   text-align: center;
   font-family:Arial, Helvetica, sans-serif;
 }
@@ -34,22 +41,28 @@ html, body {
   padding: 30px;
 }
 
+.button-container {
+  margin: 1rem;
+  text-align: center;
+}
+
 .spacing-button {
   display:inline-block;
   border: none;
+  border-radius: 3px;
   padding:1em 2em;
-  margin:1em 1em;
+  margin: 1em 0;
   text-decoration:none;
-  font-family:Arial, Helvetica, sans-serif;
-  font-weight:300;
-  color:rgb(255, 255, 255);
-  background-color: #292416;;
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  color:#f1faee;
+  background-color: #293241;
   text-align:center;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 
 .spacing-button:hover {
-  background-color: #FCA311;
+  background-color: #EE6C4D;
   cursor: pointer;
 }
 
@@ -60,19 +73,114 @@ html, body {
 
 h1 {
   margin: 0;
+  color: #f1faee;
 }
 
+h2 {
+  color: #E0FBFC;
+  font-family: 'Play', sans-serif;
+  margin: 50px 0px;
+}
+
+.leaflet-popup-content-wrapper{
+  background-color: #3D5A80;
+}
+
+.file-uploader {
+  color: white;
+  width: 500px;
+}
+
+.drag-n-drop-text {
+  text-align: center;
+  margin-right: auto;
+  color:white;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  padding: 5px;
+  border: 1px dashed #EE6C4D;
+}
+
+.file-button {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.drag-n-drop-file {
+  text-align: center;
+  margin-right: auto;
+  color:white;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+}
+
+h3 {
+  color:#dffbfc;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Play', cursive;
+}
+
+.leaflet-popup-tip {
+  background: #3D5A80;
+}
+
+
+.title-thea {
+  padding: 1rem 0;
+  font-size: 4em;
+  font-family: 'Koulen', cursive;
+}
+
+.user-message {
+  color: white;
+  margin: 1em;
+  font-size: 20px;
+  font-family: 'Play', cursive;
+  font-weight: 400;
+}
+
+
+textarea {
+  margin: 2em auto;
+  margin-top: 1em;
+  padding: auto;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #ffffff;
+  color: #293241;
+  font-size: 1.2em;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 3px;
+}
+
+
+
+.input-form {
+  margin: 40px 0px;
+  padding: 10px;
+}
+
+.form-element {
+  margin: 1em;
+}
 
 .app-description {
   text-align: center;
-  font-size: x-large;
+  font-family: 'Play', cursive;
+  font-size: 1.5rem;
   margin: 5rem;
+  color: #E0FBFC;
 }
 
 .popup {
+  min-height: 10rem;
   padding: 10px;
-  width: 300px;
-  background-color: rgb(124, 144, 162);
+  width: 12em;
+  background-color: #3D5A80;
+  color: black;
 }
 
 
@@ -80,46 +188,70 @@ h1 {
   margin: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
 
 
 footer {
-  background-color: #E5E5E5;
+  background-color: #293241;
+  max-height: 250px;
 }
 
-.credit-text {
+.socials-title {
   text-align: center;
-  font-size: x-large;
-  padding: 30px;
+  font-family: 'Play', cursive;
+  font-size: large;
+  margin: 20px;
+  color: #E0FBFC;
+}
+
+
+.loader {
+  display: flex;
+  width: 80px;
+  margin: auto;
+}
+
+.button-upload {
+  border: none;
+  color: white;
+  padding: .6em .8em;
+  background-color: #827979;
+  transition: 0.5s;
+  margin: 1em;
+  font-family: 'Play', cursive;
+  font-weight: 400;
+}
+
+.button-upload:hover {
+  background-color: #FCA311;
 }
 
 .message {
   padding: 5px;
-  border: solid;
-  border-width: 2px;
-  border-color: rgb(124, 144, 162);
-  font-family:Arial, Helvetica, sans-serif;
+  color: #E0FBFC;
+  font-family: 'Play', cursive;
   font-size: large;
   text-align:justify
 }
 
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 10em; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1000; /* Stay on top */
   top: 0; /* Stay at the top */
   padding: 20px;
   left: 0;
-  background-color: rgb(107, 101, 101); /* Black */
+  background-color: #14213D;
   padding-top: 20px;
 }
 
 .social-links {
   display:flex;
-  margin: 15px;
-  padding:0 10px 10px 0;
+  text-align: center;
+  margin-bottom: 20px;
+  margin: 0px 10px;
 }
 
 .images {
@@ -127,11 +259,11 @@ footer {
 }
 
 .icons {
-  width: 5em;
+  width: 2em;
 }
 
 .social-links :hover {
-    transition: transform .2s;
+  transition: transform .2s;
   transform: scale(1.1);
 }
 
