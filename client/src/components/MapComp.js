@@ -1,14 +1,18 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import SideBar from './SideBar';
 import '../App.css';
 import { RotatingSquare  } from  'react-loader-spinner'
 import { iconPerson, iconNew} from '../popupStyle';
-import Basic from './chooseFile';
+import { Checkmark } from "react-checkmark";
 
 
 
 const MapComp = (props) => {
+
+  const fileInputRef=useRef();
+  
+
   return (
     <div>
       <Map center={[0,0]} zoom={3} minZoom={3} maxBounds={[[-115, -195], [130, 225]]} onClick={props.handlePos}>
@@ -18,10 +22,10 @@ const MapComp = (props) => {
         />
         {props.messages.map((i) => (
             <Marker 
-                    key={i.uniqueId} 
-                    position={[i.latlng[0].lat, i.latlng[0].lng]} 
-                    icon={iconPerson} 
-                    >
+                  key={i.uniqueId} 
+                  position={[i.latlng[0].lat, i.latlng[0].lng]} 
+                  icon={iconPerson} 
+                  >
               <Popup>
                 <div>
                     <div style={{display: props.stored.includes(i.uniqueId) ? 'block' : 'none'}}>
@@ -49,18 +53,25 @@ const MapComp = (props) => {
         {props.pos != null ? 
           <Marker key={props._id} position={props.pos} icon={iconNew}>
             <Popup>
-              <form onSubmit={props.handleFormSubmit}>
+              <form onSubmit={props.formValidation}>
                 <h3>Your message:</h3>
-                <textarea maxLength='60'  
-                          required={true} 
+                <textarea  
                           value={props.inputValue} 
                           onChange={props.handleInputChange}
                           rows='5'
                           cols='10'
+                          required={true}
                           />
-                <label className="button-upload">
-                    Browse <input type="file" style={{display: 'none'}} onClick={props.handlefileSelected} required />
-                </label>
+                  <div className='file-button' type='button'  onClick={()=>fileInputRef.current.click()}>Choose your photo</div>
+                  {props.imageSubmitted == false && <p className='error-message'>Please choose a photo</p>}
+                  {props.imageSubmitted == true && <Checkmark className='checkmark' size={'40'} />}
+                  <input 
+                         type='file'
+                         accept='image/*' 
+                         ref={fileInputRef}
+                         onChange={props.handleFileSelected} 
+                         hidden
+                         />
                 <div className='button-container'>
                   <button  className='spacing-button' type="submit">Upload</button>
                 </div>

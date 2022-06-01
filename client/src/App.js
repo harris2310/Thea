@@ -13,7 +13,8 @@ const URL = 'http://localhost:5000/messages';
 const App = () => {
   const [clicked, setClicked] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [inputImage, setInputImage] = useState('');
+  const [inputImage, setInputImage] = useState(null);
+  const [imageSubmitted, setImageSubmitted] = useState(null);
   const [imageFetched, setImageFetched] = useState(false);
   const [stored, setStored] = useState([]);
   const [inputImageName, setInputImageName] = useState('');
@@ -63,8 +64,20 @@ const App = () => {
     setInputImage(e.target.files[0]);
   }
 
+  const formValidation = (e) => {
+    e.preventDefault();
+    if (inputImage === null) {
+      console.log('Enter an image please');
+      setImageSubmitted(false);
+    }
+    else {
+      setImageSubmitted(true);
+      handleFormSubmit(e);
+    }
+  }
 
   const handleFormSubmit = (e) => {
+    console.log(e);
     const latlngBef = [pos];
     const latlng = JSON.stringify(latlngBef);
     const formData = new FormData();
@@ -87,10 +100,12 @@ const App = () => {
                   stored={stored}
                   messages={messages}
                   inputValue={inputValue}
+                  inputImage={inputImage}
                   imageFetched={imageFetched}
+                  imageSubmitted={imageSubmitted}
                   setStored={setStored}
                   setImageFetched={setImageFetched}
-                  handleFormSubmit={handleFormSubmit}
+                  formValidation={formValidation}
                   handleInputChange={handleInputChange}
                   handleFileSelected={handleFileSelected}
                   handleImageFetch={handleImageFetch}

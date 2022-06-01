@@ -76,6 +76,24 @@ h1 {
   color: #f1faee;
 }
 
+
+.error-message {
+  color: #EE6C4D;
+  font-family: 'Play', sans-serif;
+  font-size: 1.1em;
+  font-weight: 800;
+}
+
+.submit-message {
+  color: #daf6f8;
+  font-family: 'Play', sans-serif;
+}
+
+.checkmark {
+  display: inline;
+  margin-top: 20px;
+}
+
 h2 {
   color: #E0FBFC;
   font-family: 'Play', sans-serif;
@@ -102,8 +120,12 @@ h2 {
 }
 
 .file-button {
-  box-sizing: border-box;
-  width: 100%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  color: #daf6f8;
+  border: 1px dashed #daf6f8;
+  cursor: pointer;
 }
 
 .drag-n-drop-file {
@@ -234,6 +256,7 @@ footer {
   font-size: large;
   text-align:justify
 }
+
 
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
