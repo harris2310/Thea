@@ -14,12 +14,14 @@ const App = () => {
   const [clicked, setClicked] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [inputImage, setInputImage] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [imageSubmitted, setImageSubmitted] = useState(null);
   const [imageFetched, setImageFetched] = useState(false);
   const [stored, setStored] = useState([]);
   const [inputImageName, setInputImageName] = useState('');
   const [messages, setMessages] = useState(null);
   const [pos, setPos] = useState(null);
+
 
 //COMMENT FOR CLIENT ONLY
    useEffect(() => {
@@ -62,6 +64,7 @@ const App = () => {
   const  handleFileSelected = (e) => {
     setInputImageName(e.target.files[0].name);
     setInputImage(e.target.files[0]);
+    setImageLoaded(true);
   }
 
   const formValidation = (e) => {
@@ -76,7 +79,7 @@ const App = () => {
     }
   }
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) =>  {
     console.log(e);
     const latlngBef = [pos];
     const latlng = JSON.stringify(latlngBef);
@@ -85,12 +88,19 @@ const App = () => {
     formData.append('message', inputValue);
     formData.append('uniqueId', uuid());
     formData.append('image', inputImage);
-    apiPostCall(e, URL, formData).then((res) => {
-      if(res.status=='200') {
-        console.log('success');
-      } else {
-        console.log('failed');
-      }});
+    const res = await apiPostCall(e, URL, formData)
+    if(res.status=='200') {
+      console.log('success');
+    } else {
+      console.log('failed');
+    }
+    handleFormSubmitted();
+  }
+
+  const handleFormSubmitted = () => {
+    setTimeout(() => {
+    }, 1000);
+    window.location.href = "localhost:3000";
   }
 
 
@@ -102,7 +112,9 @@ const App = () => {
                   inputValue={inputValue}
                   inputImage={inputImage}
                   imageFetched={imageFetched}
+                  imageLoaded={imageLoaded}
                   imageSubmitted={imageSubmitted}
+                  inputImageName={inputImageName}
                   setStored={setStored}
                   setImageFetched={setImageFetched}
                   formValidation={formValidation}

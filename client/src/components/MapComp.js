@@ -52,7 +52,7 @@ const MapComp = (props) => {
         ))}
         {props.pos != null ? 
           <Marker key={props._id} position={props.pos} icon={iconNew}>
-            <Popup>
+            <Popup className='popup'>
               <form onSubmit={props.formValidation}>
                 <h3>Your message:</h3>
                 <textarea  
@@ -62,8 +62,14 @@ const MapComp = (props) => {
                           cols='10'
                           required={true}
                           />
-                  <div className='file-button' type='button'  onClick={()=>fileInputRef.current.click()}>Choose your photo</div>
-                  {props.imageSubmitted == false && <p className='error-message'>Please choose a photo</p>}
+                  <div className='file-button' type='button'  onClick={()=>fileInputRef.current.click()}>
+                  {props.imageLoaded == false && 'Choose your photo'}
+                  {props.imageLoaded == true && <div className='file-name'>{props.inputImageName}</div>}
+                  </div>
+                  {(props.imageLoaded == false && props.imageSubmitted == false) 
+                                  ? <p className='error-message'>Please choose a photo</p>
+                                  : ''
+                                   }
                   {props.imageSubmitted == true && <Checkmark className='checkmark' size={'40'} />}
                   <input 
                          type='file'

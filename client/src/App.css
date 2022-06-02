@@ -109,6 +109,12 @@ h2 {
   width: 500px;
 }
 
+.file-name {
+  margin: 0;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
 .drag-n-drop-text {
   text-align: center;
   margin-right: auto;
@@ -120,12 +126,15 @@ h2 {
 }
 
 .file-button {
+  box-sizing:border-box;
   margin: auto;
   padding: 10px;
   text-align: center;
   color: #daf6f8;
   border: 1px dashed #daf6f8;
   cursor: pointer;
+  width: 100%;
+  max-width: 10rem;
 }
 
 .drag-n-drop-file {
@@ -142,6 +151,7 @@ h3 {
   font-size: 1.5em;
   font-family: 'Play', cursive;
 }
+
 
 .leaflet-popup-tip {
   background: #3D5A80;
@@ -164,8 +174,9 @@ h3 {
 
 
 textarea {
-  margin: 2em auto;
-  margin-top: 1em;
+  align-self: center;
+  margin: 2rem auto;
+  margin-top: 1rem;
   padding: auto;
   font-family: 'Roboto Mono', monospace;
   background-color: #ffffff;
@@ -198,11 +209,7 @@ textarea {
 }
 
 .popup {
-  min-height: 10rem;
-  padding: 10px;
-  width: 12em;
-  background-color: #3D5A80;
-  color: black;
+  text-align: center;
 }
 
 
