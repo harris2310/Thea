@@ -1,0 +1,152 @@
+.button {
+  height:20px;
+  width: 70px;
+}
+
+
+
+.button-container {
+  margin: 1rem;
+  text-align: center;
+}
+
+.spacing-button {
+  display:inline-block;
+  border: none;
+  border-radius: 3px;
+  padding:1em 2em;
+  margin: 12em 0;
+  text-decoration:none;
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  color:#f1faee;
+  background-color: $dark-blue;
+  transition: all 0.15s;
+}
+
+.spacing-button:hover {
+  background-color: $orange;
+  cursor: pointer;
+}
+
+.file-button {
+  box-sizing:border-box;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  color: #daf6f8;
+  border: 1px dashed $light-blue;
+  cursor: pointer;
+  width: 100%;
+  max-width: 10rem;
+}
+
+.error-message {
+  color: $orange;
+  font-family: $basic-font;
+  font-size: 1.1em;
+  font-weight: 800;
+}
+
+.popup {
+  text-align: center;
+}
+
+.leaflet-popup-content-wrapper{
+  background-color: $medium-blue
+}
+
+.leaflet-popup-tip {
+  background: $medium-blue
+}
+
+.input-form {
+  margin: 40px 0px;
+  padding: 10px;
+}
+
+.form-element {
+  margin: 1em;
+}
+
+.submit-message {
+  color: $light-blue;
+  font-family: $basic-font;
+}
+
+.checkmark {
+  display: inline;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width:25em;
+}
+
+.images {
+  width: 250px;
+}
+
+.icons {
+  width: 2em;
+}
+
+.social-links :hover {
+  transition: transform .2s;
+  transform: scale(1.1);
+}
+
+
+.file-uploader {
+  color: $white;
+  width: 500px;
+}
+
+.file-name {
+  margin: 0;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+.file-select {
+  background-color: $white;
+  display: block;
+  width: 90px;
+  margin: auto;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid $white;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: $white transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

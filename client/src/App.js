@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import  { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import './css/main.css';
 import MapComp from './components/MapComp.js';
 import LandingPage from './components/LandingPage.js';
 import uuid from 'react-uuid'
@@ -15,7 +16,9 @@ const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [inputImage, setInputImage] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageSubmitted, setImageSubmitted] = useState(null);
+  const [formPending, setFormPending] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formDenied, setFormDenied] = useState(false);
   const [imageFetched, setImageFetched] = useState(false);
   const [stored, setStored] = useState([]);
   const [inputImageName, setInputImageName] = useState('');
@@ -59,7 +62,7 @@ const App = () => {
   const handleInputChange = (e) => {
     e.persist();
     setInputValue(e.target.value);
-  }
+  };
 
   const  handleFileSelected = (e) => {
     setInputImageName(e.target.files[0].name);
@@ -71,10 +74,10 @@ const App = () => {
     e.preventDefault();
     if (inputImage === null) {
       console.log('Enter an image please');
-      setImageSubmitted(false);
+      setFormDenied(true);
     }
     else {
-      setImageSubmitted(true);
+      setFormPending(true);
       handleFormSubmit(e);
     }
   }
@@ -89,42 +92,44 @@ const App = () => {
     formData.append('uniqueId', uuid());
     formData.append('image', inputImage);
     const res = await apiPostCall(e, URL, formData)
-    if(res.status=='200') {
+    if(res.status == '200') {
       console.log('success');
+      setFormSubmitted(true);
     } else {
       console.log('failed');
     }
-    handleFormSubmitted();
-  }
-
-  const handleFormSubmitted = () => {
-    setTimeout(() => {
-    }, 1000);
-    window.location.href = "localhost:3000";
   }
 
 
   return (
     <div>
-      {clicked ? <MapComp 
-                  stored={stored}
-                  messages={messages}
-                  inputValue={inputValue}
-                  inputImage={inputImage}
-                  imageFetched={imageFetched}
-                  imageLoaded={imageLoaded}
-                  imageSubmitted={imageSubmitted}
-                  inputImageName={inputImageName}
-                  setStored={setStored}
-                  setImageFetched={setImageFetched}
-                  formValidation={formValidation}
-                  handleInputChange={handleInputChange}
-                  handleFileSelected={handleFileSelected}
-                  handleImageFetch={handleImageFetch}
-                  handlePos={handlePos}
-                  pos={pos}
-                  />
-               : <LandingPage handleClicked={handleClicked} />} 
+      <BrowserRouter>
+        <Routes>
+          <Route path='/Map' element=
+                {clicked && <MapComp 
+                stored={stored}
+                messages={messages}
+                inputValue={inputValue}
+                inputImage={inputImage}
+                imageFetched={imageFetched}
+                imageLoaded={imageLoaded}
+                formPending={formPending}
+                formSubmitted={formSubmitted}
+                formDenied={formDenied}
+                inputImageName={inputImageName}
+                setStored={setStored}
+                setImageFetched={setImageFetched}
+                formValidation={formValidation}
+                handleInputChange={handleInputChange}
+                handleFileSelected={handleFileSelected}
+                handleImageFetch={handleImageFetch}
+                handlePos={handlePos}
+                pos={pos}
+                />}
+          />
+          <Route path='/' element={<LandingPage handleClicked={handleClicked} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

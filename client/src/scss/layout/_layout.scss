@@ -1,0 +1,60 @@
+html, body {
+  min-height: 100vh;
+}
+
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+  background-color: $medium-blue;
+  background-image: url('../images/background-image.svg');
+  background-repeat:no-repeat;
+  background-position: 50.5%;
+  background-position-y: bottom;
+  background-size: 45%
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.header-container {
+  background-color: $dark-blue;
+  text-align: center;
+  font-family: $Arial;
+}
+
+
+.sidebar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 10em; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1000; /* Stay on top */
+  top: 0; /* Stay at the top */
+  padding: 20px;
+  left: 0;
+  background-color: $dark-blue;
+  padding-top: 20px;
+}
+
+.flex-footer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+footer {
+  background-color: $dark-blue;
+  max-height: 250px;
+}
+
+
+

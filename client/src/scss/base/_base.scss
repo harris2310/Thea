@@ -1,0 +1,98 @@
+h1 {
+  margin: 0;
+  color: #f1faee;
+}
+
+h2 {
+  color: $light-blue;
+  font-family: 'Play', sans-serif;
+  margin: 50px 0px;
+}
+
+h3 {
+  color:#dffbfc;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Play', cursive;
+}
+
+
+.socials-title {
+  text-align: center;
+  font-family: 'Play', cursive;
+  font-size: large;
+  margin: 20px;
+  color: $light-blue;
+}
+
+
+.title-thea {
+  padding: 1rem 0;
+  font-size: 4em;
+  font-family: 'Koulen', cursive;
+}
+
+.header-title {
+  color: $white;
+  padding: 30px;
+}
+
+.app-description {
+  text-align: center;
+  font-family: 'Play', cursive;
+  font-size: 1.5rem;
+  margin: 5rem;
+  color: #E0FBFC;
+}
+
+
+.social-links {
+  display:flex;
+  text-align: center;
+  margin-bottom: 20px;
+  margin: 0px 10px;
+}
+
+.message {
+  padding: 5px;
+  color: #E0FBFC;
+  font-family: 'Play', cursive;
+  font-size: large;
+  text-align:justify
+}
+
+.error-message {
+  color: $orange;
+  font-family: 'Play', sans-serif;
+  font-size: 1.1em;
+  font-weight: 800;
+}
+
+.submit-message {
+  color: #daf6f8;
+  font-family: 'Play', sans-serif;
+}
+
+.user-message {
+  color: $white;
+  margin: 1em;
+  font-size: 20px;
+  font-family: 'Play', cursive;
+  font-weight: 400;
+}
+
+textarea {
+  align-self: center;
+  margin: 2rem auto;
+  margin-top: 1rem;
+  padding: auto;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #ffffff;
+  color: #293241;
+  font-size: 1.2em;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 3px;
+}

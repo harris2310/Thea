@@ -1,5 +1,7 @@
 import React from 'react';
-import '../App.css';
+import '../css/main.css';
+import {Link} from 'react-router-dom';
+
 
 const LandingPage = props => {
   return (
@@ -17,7 +19,9 @@ const LandingPage = props => {
           It's developed by me, Harris Hanozidis
         </p>
         <div style={{textAlign: 'center'}}>
-          <button className='spacing-button' onClick={props.handleClicked}>Start!</button>
+          <Link to='/Map'> 
+            <button className='spacing-button' onClick={props.handleClicked} type='button'>Start!</button>
+          </Link>  
         </div>
       </section>
       <footer>
@@ -45,5 +49,7 @@ const LandingPage = props => {
     </div>
   )
 }
+
+
 
 export default LandingPage;
