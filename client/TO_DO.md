@@ -1,8 +1,6 @@
 HIGH PRIOTIRY
 *Refresh popup on Submit
-*.env
 *Backend data validation
-*.gitignore
 
 
 
@@ -13,3 +11,7 @@ MEDIUM PRIORITY
 
 NO PRIORITY
 *Add to sidebar other user's photos around the selected area
+
+DONE
+*.env
+*.gitignore

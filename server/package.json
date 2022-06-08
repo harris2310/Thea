@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "monk": "^7.3.4",
     "multer-gridfs-storage": "^5.0.2",

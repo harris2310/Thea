@@ -2,9 +2,10 @@ var express = require('express');
 const {MongoClient} = require('mongodb');
 
 
+console.log(process.env)
 
 async function initializing() {
-  const mongoURI = 'mongodb+srv://Harris1:jakharparkour2310@cluster0.qbpz0.mongodb.net/Messages?retryWrites=true&w=majority';
+  const mongoURI = process.env.API_KEY;
   const client = new MongoClient(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
