@@ -16,6 +16,7 @@
     "dotenv": "^16.0.1",
     "express": "~4.16.1",
     "express-rate-limit": "^6.4.0",
+    "firebase": "^9.8.2",
     "gridfs": "^1.0.0",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",

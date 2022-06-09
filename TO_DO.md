@@ -1,4 +1,7 @@
 HIGH PRIOTIRY
+*Firebase
+*Heroku
+*Deploy
 *Refresh popup on Submit
 
 

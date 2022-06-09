@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e59c7163.chunk.css",
+    "main.js": "/static/js/main.ac238f18.chunk.js",
+    "main.js.map": "/static/js/main.ac238f18.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.0e050323.chunk.js": "/static/js/2.0e050323.chunk.js",
+    "static/js/2.0e050323.chunk.js.map": "/static/js/2.0e050323.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.448635c115f92b03ecf38e16261c690f.js": "/precache-manifest.448635c115f92b03ecf38e16261c690f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e59c7163.chunk.css.map": "/static/css/main.e59c7163.chunk.css.map",
+    "static/js/2.0e050323.chunk.js.LICENSE.txt": "/static/js/2.0e050323.chunk.js.LICENSE.txt",
+    "static/js/main.ac238f18.chunk.js.LICENSE.txt": "/static/js/main.ac238f18.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/static/media/background-image.8867e461.svg",
+    "static/media/blue-marker.png": "/static/media/blue-marker.52b13eee.png",
+    "static/media/instagram-logo.png": "/static/media/instagram-logo.ae119abd.png",
+    "static/media/orange-marker.png": "/static/media/orange-marker.6ef06d0f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.0e050323.chunk.js",
+    "static/css/main.e59c7163.chunk.css",
+    "static/js/main.ac238f18.chunk.js"
+  ]
+}
