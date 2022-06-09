@@ -84,8 +84,7 @@ const App = () => {
 
   const handleFormSubmit = async (e) =>  {
     console.log(e);
-    const latlngBef = [pos];
-    const latlng = JSON.stringify(latlngBef);
+    const latlng = JSON.stringify(pos);
     const formData = new FormData();
     formData.append('latlng', latlng);
     formData.append('message', inputValue);

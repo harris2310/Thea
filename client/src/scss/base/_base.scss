@@ -37,6 +37,14 @@ h3 {
   padding: 30px;
 }
 
+.credit-text {
+  position: absolute;
+  color: $light-blue;
+  font-family: $basic-font;
+  font-weight: 600;
+  bottom: 10%;
+}
+
 .app-description {
   text-align: center;
   font-family: 'Play', cursive;
@@ -77,7 +85,7 @@ h3 {
   color: $white;
   margin: 1em;
   font-size: 20px;
-  font-family: 'Play', cursive;
+  font-family: $basic-font;
   font-weight: 400;
 }
 

@@ -10,12 +10,32 @@
   text-align: center;
 }
 
+.start-button {
+  margin: auto;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  margin: 12em 0;
+  text-decoration:none;
+  font-family: $basic-font;
+  font-weight: 800;
+  color: $orange;
+  background-color: $light-blue;
+  transition: all 0.15s;
+}
+
+.start-button:hover {
+  background-color: $orange;
+  cursor: pointer;
+}
+
 .spacing-button {
   display:inline-block;
   border: none;
   border-radius: 3px;
   padding:1em 2em;
-  margin: 12em 0;
+  margin: 1em 0;
   text-decoration:none;
   font-family: 'Play', sans-serif;
   font-weight: 400;
@@ -118,6 +138,10 @@
   position: relative;
   width: 80px;
   height: 80px;
+}
+
+.lds-ring-wrapper {
+  text-align: center;
 }
 
 

@@ -3,24 +3,25 @@ var router = express.Router();
 const connection = require('../connection/connection');
 const upload = require('../storage/upload');
 const {MongoClient} = require('mongodb');
-const dbConfig = require("../config/db");
+const {GridFSBucket} = require("mongodb");
+const dbConfig = require('../config/db');
+const uploadValidation = require('../validation/validation');
+
 const url = dbConfig.url;
 const baseUrl = "http://localhost:5000/messages/files/";
 
-const {GridFSBucket} = require("mongodb");
+
 
 const mongoClient = new MongoClient(url, {useUnifiedTopology: true});
 
-let conn, connImages;
 
 async function initialMessages(req, res, next) {
-  conn = await connection;
+  let conn = await connection;
   let cursor = await conn.db('Messages').collection('messages').find()
   let msgs = await cursor.toArray();
   //console.log(msgs);
   let fileInfos = [];
   try {
-
     await mongoClient.connect();
     const database = mongoClient.db(dbConfig.database);
     const images = database.collection(dbConfig.imgBucket + ".files");
@@ -54,17 +55,20 @@ async function initialMessages(req, res, next) {
 }
 
 async function postMessages(req, res, next) {
-  let result = await upload(req, res);
-  console.log('File uploaded');
-  connBody = await connection;
-  let { latlng, message, uniqueId } = req.body;
-  latlng = JSON.parse(latlng);
-  const message1 = ({
-    latlng: latlng,
-    message: message,
-    uniqueId: uniqueId,
-  });
   try {
+    connBody = await connection;
+    await upload(req, res);
+    let { latlng, message, uniqueId } = req.body;
+    latlng = JSON.parse(latlng);
+    const { error } = await uploadValidation.validateAsync({latlng: latlng,
+                                                            message: message,
+                                                            uniqueId: uniqueId,
+                                                            });
+    const message1 = ({
+      latlng: latlng,
+      message: message,
+      uniqueId: uniqueId,
+    });
     const insertedMessage = await connBody.db('Messages').collection('messages').insertOne(message1);
     console.log(insertedMessage);
     res.send('Message uploaded')

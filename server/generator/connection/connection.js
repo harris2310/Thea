@@ -2,8 +2,6 @@ var express = require('express');
 const {MongoClient} = require('mongodb');
 
 
-console.log(process.env)
-
 async function initializing() {
   const mongoURI = process.env.API_KEY;
   const client = new MongoClient(mongoURI, {

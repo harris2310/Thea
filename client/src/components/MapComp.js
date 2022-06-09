@@ -23,7 +23,7 @@ const MapComp = (props) => {
         {props.messages.map((i) => (
             <Marker 
                   key={i.uniqueId} 
-                  position={[i.latlng[0].lat, i.latlng[0].lng]} 
+                  position={[i.latlng.lat, i.latlng.lng]} 
                   icon={iconPerson} 
                   >
               <Popup>
@@ -56,7 +56,7 @@ const MapComp = (props) => {
               {props.formSubmitted ? 
                 <>
                 <h3 className='successfully'>Submitted Successfully</h3>
-                <Checkmark className='checkmark' size={'80'} />
+                <Checkmark className='checkmark' color='#EE6C4D' size={'80'} />
                 </>
                 :
                 <form onSubmit={props.formValidation}>
@@ -81,7 +81,7 @@ const MapComp = (props) => {
                       </div>
                     }
                     {(props.formPending == true && props.formSubmitted == false) &&
-                      <div style={{'text-align': 'center'}}>
+                      <div className='lds-ring-wrapper'>
                         <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
                       </div>  
                     }

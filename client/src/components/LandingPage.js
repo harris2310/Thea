@@ -20,7 +20,7 @@ const LandingPage = props => {
         </p>
         <div style={{textAlign: 'center'}}>
           <Link to='/Map'> 
-            <button className='spacing-button' onClick={props.handleClicked} type='button'>Start!</button>
+            <button className='start-button' onClick={props.handleClicked} type='button'>Start!</button>
           </Link>  
         </div>
       </section>
